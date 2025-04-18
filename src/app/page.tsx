@@ -1,103 +1,280 @@
-import Image from "next/image";
+import { Navbar } from "@/components/Navbar";
+import { Footer } from "@/components/Footer";
+import { Card, CardContent } from "@/components/ui/card";
+import { IconWrapper } from "@/components/ui/icon-wrapper";
+import { Metadata } from "next";
+import Link from "next/link";
+import HeroSection from "@/components/HeroSection";
+import CtaSection from "@/components/CtaSection";
+
+export const metadata: Metadata = {
+  title: "Biz Glow AI - AI-Powered Solutions for Small Businesses",
+  description: "Transform your business with Biz Glow AI's intelligent automation and AI agents. Streamline operations, enhance customer service, and drive growth.",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://bizglow.ai/",
+    siteName: "Biz Glow AI",
+  },
+};
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <main className="min-h-screen bg-gray-950 text-white">
+      <Navbar />
+      <HeroSection />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      {/* Features Section */}
+      <section className="py-20 bg-gradient-to-b from-gray-900 to-gray-950">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600">
+              Powerful Features & Services
+            </h2>
+            <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+              Everything you need to automate, grow, and transform your business
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Customer Service Automation */}
+            <Link href="/services/customer-service-automation" className="block">
+              <Card className="bg-gray-800/50 border border-gray-700/50 hover:border-blue-500/30 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10 group">
+                <CardContent className="p-8">
+                  <div className="w-14 h-14 bg-blue-500/20 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-500/30 transition-colors animate-pulse">
+                    <IconWrapper icon="MessageSquare" variant="blue" size="lg" />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-4 text-gray-100">Customer Service Automation</h3>
+                  <p className="text-gray-300 mb-6">
+                    Provide seamless 24/7 support with AI chatbots and virtual assistants.
+                  </p>
+                  <ul className="space-y-3">
+                    <li className="flex items-center text-gray-300">
+                      <IconWrapper icon="CheckCircle2" variant="gold" size="sm" />
+                      <span className="ml-2">AI-powered chatbots</span>
+                    </li>
+                    <li className="flex items-center text-gray-300">
+                      <IconWrapper icon="CheckCircle2" variant="gold" size="sm" />
+                      <span className="ml-2">Virtual assistants</span>
+                    </li>
+                    <li className="flex items-center text-gray-300">
+                      <IconWrapper icon="CheckCircle2" variant="gold" size="sm" />
+                      <span className="ml-2">Automated follow-ups</span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+            </Link>
+
+            {/* Marketing Automation */}
+            <Link href="/services/marketing-automation" className="block">
+              <Card className="bg-gray-800/50 border border-gray-700/50 hover:border-blue-500/30 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10 group">
+                <CardContent className="p-8">
+                  <div className="w-14 h-14 bg-blue-500/20 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-500/30 transition-colors animate-pulse [animation-delay:200ms]">
+                    <IconWrapper icon="Mail" variant="blue" size="lg" />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-4 text-gray-100">Marketing Automation</h3>
+                  <p className="text-gray-300 mb-6">
+                    Drive engagement with personalized email campaigns and social media tools.
+                  </p>
+                  <ul className="space-y-3">
+                    <li className="flex items-center text-gray-300">
+                      <IconWrapper icon="CheckCircle2" variant="gold" size="sm" />
+                      <span className="ml-2">Personalized campaigns</span>
+                    </li>
+                    <li className="flex items-center text-gray-300">
+                      <IconWrapper icon="CheckCircle2" variant="gold" size="sm" />
+                      <span className="ml-2">Social media automation</span>
+                    </li>
+                    <li className="flex items-center text-gray-300">
+                      <IconWrapper icon="CheckCircle2" variant="gold" size="sm" />
+                      <span className="ml-2">AI content creation</span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+            </Link>
+
+            {/* Operational Automation */}
+            <Link href="/services/operational-automation" className="block">
+              <Card className="bg-gray-800/50 border border-gray-700/50 hover:border-blue-500/30 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10 group">
+                <CardContent className="p-8">
+                  <div className="w-14 h-14 bg-blue-500/20 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-500/30 transition-colors animate-pulse [animation-delay:400ms]">
+                    <IconWrapper icon="Zap" variant="blue" size="lg" />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-4 text-gray-100">Operational Automation</h3>
+                  <p className="text-gray-300 mb-6">
+                    Streamline workflows with intelligent automation for efficiency.
+                  </p>
+                  <ul className="space-y-3">
+                    <li className="flex items-center text-gray-300">
+                      <IconWrapper icon="CheckCircle2" variant="gold" size="sm" />
+                      <span className="ml-2">Inventory management</span>
+                    </li>
+                    <li className="flex items-center text-gray-300">
+                      <IconWrapper icon="CheckCircle2" variant="gold" size="sm" />
+                      <span className="ml-2">Supply chain optimization</span>
+                    </li>
+                    <li className="flex items-center text-gray-300">
+                      <IconWrapper icon="CheckCircle2" variant="gold" size="sm" />
+                      <span className="ml-2">HR automation</span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+            </Link>
+
+            {/* Reporting and Insights */}
+            <Link href="/services/reporting-and-insights" className="block">
+              <Card className="bg-gray-800/50 border border-gray-700/50 hover:border-blue-500/30 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10 group">
+                <CardContent className="p-8">
+                  <div className="w-14 h-14 bg-blue-500/20 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-500/30 transition-colors animate-pulse">
+                    <IconWrapper icon="BarChart" variant="blue" size="lg" />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-4 text-gray-100">Reporting and Insights</h3>
+                  <p className="text-gray-300 mb-6">
+                    Empower decisions with real-time data and AI-driven analytics.
+                  </p>
+                  <ul className="space-y-3">
+                    <li className="flex items-center text-gray-300">
+                      <IconWrapper icon="CheckCircle2" variant="gold" size="sm" />
+                      <span className="ml-2">Real-time dashboards</span>
+                    </li>
+                    <li className="flex items-center text-gray-300">
+                      <IconWrapper icon="CheckCircle2" variant="gold" size="sm" />
+                      <span className="ml-2">Predictive analytics</span>
+                    </li>
+                    <li className="flex items-center text-gray-300">
+                      <IconWrapper icon="CheckCircle2" variant="gold" size="sm" />
+                      <span className="ml-2">Customizable reports</span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+            </Link>
+
+            {/* Sales Automation */}
+            <Link href="/services/sales-automation" className="block">
+              <Card className="bg-gray-800/50 border border-gray-700/50 hover:border-blue-500/30 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10 group">
+                <CardContent className="p-8">
+                  <div className="w-14 h-14 bg-blue-500/20 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-500/30 transition-colors animate-pulse [animation-delay:200ms]">
+                    <IconWrapper icon="TrendingUp" variant="blue" size="lg" />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-4 text-gray-100">Sales Automation</h3>
+                  <p className="text-gray-300 mb-6">
+                    Boost conversions with AI-driven lead scoring and outreach.
+                  </p>
+                  <ul className="space-y-3">
+                    <li className="flex items-center text-gray-300">
+                      <IconWrapper icon="CheckCircle2" variant="gold" size="sm" />
+                      <span className="ml-2">AI lead scoring</span>
+                    </li>
+                    <li className="flex items-center text-gray-300">
+                      <IconWrapper icon="CheckCircle2" variant="gold" size="sm" />
+                      <span className="ml-2">Personalized outreach</span>
+                    </li>
+                    <li className="flex items-center text-gray-300">
+                      <IconWrapper icon="CheckCircle2" variant="gold" size="sm" />
+                      <span className="ml-2">Sales forecasting</span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+            </Link>
+
+            {/* Website Development */}
+            <Link href="/services/website-development" className="block">
+              <Card className="bg-gray-800/50 border border-gray-700/50 hover:border-blue-500/30 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10 group">
+                <CardContent className="p-8">
+                  <div className="w-14 h-14 bg-blue-500/20 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-500/30 transition-colors animate-pulse [animation-delay:400ms]">
+                    <IconWrapper icon="Sparkles" variant="blue" size="lg" />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-4 text-gray-100">Website Development</h3>
+                  <p className="text-gray-300 mb-6">
+                    Build modern, SEO-optimized websites in days, not months.
+                  </p>
+                  <ul className="space-y-3">
+                    <li className="flex items-center text-gray-300">
+                      <IconWrapper icon="CheckCircle2" variant="gold" size="sm" />
+                      <span className="ml-2">Custom website design</span>
+                    </li>
+                    <li className="flex items-center text-gray-300">
+                      <IconWrapper icon="CheckCircle2" variant="gold" size="sm" />
+                      <span className="ml-2">E-commerce integration</span>
+                    </li>
+                    <li className="flex items-center text-gray-300">
+                      <IconWrapper icon="CheckCircle2" variant="gold" size="sm" />
+                      <span className="ml-2">SEO optimization</span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+            </Link>
+          </div>
+
+          <div className="mt-16 text-center">
+            <p className="text-lg text-gray-300 max-w-3xl mx-auto">
+              Our comprehensive suite of AI-powered features and services work together seamlessly to help your business grow. From automating routine tasks to providing deep insights, we have got you covered at every step of your journey.
+            </p>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </section>
+
+      {/* Why Biz Glow AI Section */}
+      <section className="relative py-24 bg-gray-900 overflow-hidden">
+        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-2/3 h-px bg-gradient-to-r from-transparent via-blue-500/40 to-transparent" />
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-500 to-blue-600 animate-fade-in-up">
+              Why Choose Biz Glow AI?
+            </h2>
+            <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto animate-fade-in-up [animation-delay:200ms]">
+              We&apos;re more than just an AI service provider. We&apos;re your growth partner — combining innovation, affordability, and empowerment to help your small business shine.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 animate-fade-in-up [animation-delay:400ms]">
+            {[
+              {
+                title: "Innovation",
+                content: "Tap into the latest advancements in AI to automate smarter, scale faster, and innovate fearlessly.",
+                icon: "Zap" as const,
+              },
+              {
+                title: "Affordability",
+                content: "Get enterprise-grade automation without the enterprise price tag. Big results for lean budgets.",
+                icon: "Star" as const,
+              },
+              {
+                title: "Empowerment",
+                content: "From solopreneurs to scaling teams, we build tools that simplify, amplify, and elevate your work.",
+                icon: "Users" as const,
+              },
+            ].map((value, index) => (
+              <Card
+                key={index}
+                className="bg-gradient-to-b from-gray-800/60 to-gray-900/60 border border-blue-500/10 hover:border-blue-500/30 hover:shadow-blue-500/10 rounded-2xl p-6 transition-all duration-300 hover:shadow-xl group"
+              >
+                <CardContent>
+                  <div className="w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center mb-6 group-hover:bg-blue-500/30 transition-all">
+                    <IconWrapper icon={value.icon} variant="blue" size="lg" />
+                  </div>
+                  <h3 className="text-2xl font-semibold mb-3 text-white">{value.title}</h3>
+                  <p className="text-gray-300 leading-relaxed">{value.content}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+
+        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-blue-500/40 to-transparent mt-20" />
+      </section>
+
+      {/* CTA Section */}
+      <CtaSection />
+
+      <Footer />
+    </main>
   );
 }
