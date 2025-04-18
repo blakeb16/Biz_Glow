@@ -6,7 +6,6 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 
 export default function CtaSection() {
-  // Animation variants for staggered entrance
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -27,28 +26,18 @@ export default function CtaSection() {
   };
 
   return (
-    <section className="relative py-24 bg-gray-950 overflow-hidden">
-      {/* Background Gradient and Effects */}
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-950 via-gray-950 to-purple-950 opacity-95" />
-      <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-10 [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0.3))]" />
-      <div className="absolute inset-0 animate-pulse opacity-15">
-        <div className="w-full h-full bg-[radial-gradient(circle_at_50%_50%,_rgba(59,130,246,0.3),_transparent_70%)]" />
+    <section className="relative py-24">
+      <div className="bg-section-glow">
+        <div className="w-full h-full bg-[radial-gradient(circle_at_50%_50%,_rgba(59,130,246,0.2),_transparent_80%)]" />
       </div>
-      {/* Particle Effect */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="w-1 h-1 bg-blue-400 rounded-full absolute top-10 left-1/4 animate-particle" />
-        <div className="w-1 h-1 bg-purple-400 rounded-full absolute top-20 right-1/3 animate-particle-delayed" />
-      </div>
-
       <motion.div
-        className="container mx-auto px-4 text-center"
+        className="container mx-auto px-4 text-center relative z-10"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
         variants={containerVariants}
       >
         <div className="max-w-3xl mx-auto relative">
-          {/* Heading with Sparkles */}
           <motion.h2
             variants={fadeInUp}
             className="text-3xl md:text-4xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-300 via-blue-500 to-purple-500 drop-shadow-md"
@@ -58,7 +47,6 @@ export default function CtaSection() {
             <div className="absolute -bottom-2 -right-2 w-1.5 h-1.5 bg-blue-400 rounded-full animate-orbit-delayed" />
           </motion.h2>
 
-          {/* Paragraph */}
           <motion.p
             variants={fadeInUp}
             className="text-xl text-gray-100 mb-8 max-w-2xl mx-auto drop-shadow-md"
@@ -68,7 +56,6 @@ export default function CtaSection() {
             Join the businesses already using Biz Glow AI to automate their operations and drive growth!
           </motion.p>
 
-          {/* Button */}
           <motion.div variants={fadeInUp}>
             <Link href="/contact">
               <Button

@@ -1,12 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image"; // Added Image import
+import Image from "next/image";
 import { Twitter, Linkedin, Github } from "lucide-react";
 import { motion } from "framer-motion";
 
 export function Footer() {
-  // Animation variants for staggered entrance
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -27,14 +26,14 @@ export function Footer() {
   };
 
   return (
-    <footer className="relative bg-gray-950 text-white overflow-hidden">
-      {/* Background Gradient and Subtle Grid */}
-      <div className="absolute inset-0 bg-gradient-to-t from-blue-950/50 via-gray-950 to-purple-950/50" />
-      <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-10 [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0.2))]" />
-      <div className="absolute inset-0 animate-pulse opacity-10">
-        <div className="w-full h-full bg-[radial-gradient(circle_at_50%_50%,_rgba(59,130,246,0.2),_transparent_70%)]" />
+    <footer className="relative text-white">
+      {/* Enhanced separator with glow */}
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-blue-500 to-transparent shadow-[0_-2px_15px_rgba(59,130,246,0.3)]" />
+      {/* Darker overlay for the footer */}
+      <div className="absolute inset-0 bg-indigo-950/30" />
+      <div className="bg-section-glow">
+        <div className="w-full h-full bg-[radial-gradient(circle_at_50%_50%,_rgba(59,130,246,0.2),_transparent_80%)]" />
       </div>
-
       <div className="container mx-auto px-4 py-16 relative z-10">
         <motion.div
           className="grid grid-cols-1 md:grid-cols-4 gap-8"
@@ -43,7 +42,6 @@ export function Footer() {
           viewport={{ once: true, amount: 0.3 }}
           variants={containerVariants}
         >
-          {/* Company Info */}
           <motion.div variants={fadeInUp}>
             <div className="flex items-center space-x-3 mb-6">
               <Image
@@ -62,7 +60,6 @@ export function Footer() {
             </p>
           </motion.div>
 
-          {/* Services */}
           <motion.div variants={fadeInUp}>
             <h3 className="text-lg font-semibold mb-4 text-blue-200">Services</h3>
             <ul className="space-y-3 text-gray-300">
@@ -87,7 +84,6 @@ export function Footer() {
             </ul>
           </motion.div>
 
-          {/* Company */}
           <motion.div variants={fadeInUp}>
             <h3 className="text-lg font-semibold mb-4 text-blue-200">Company</h3>
             <ul className="space-y-3 text-gray-300">
@@ -112,7 +108,6 @@ export function Footer() {
             </ul>
           </motion.div>
 
-          {/* Social Links */}
           <motion.div variants={fadeInUp}>
             <h3 className="text-lg font-semibold mb-4 text-blue-200">Connect</h3>
             <div className="flex space-x-6">
@@ -139,7 +134,6 @@ export function Footer() {
           </motion.div>
         </motion.div>
 
-        {/* Copyright */}
         <motion.div
           className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400"
           variants={fadeInUp}

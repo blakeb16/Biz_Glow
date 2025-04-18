@@ -210,6 +210,7 @@
 
 
 @layer utilities {
+  /* Existing utilities (unchanged) */
   .animate-fade-in {
     animation: fadeIn 0.8s ease-in-out;
   }
@@ -220,6 +221,33 @@
     animation-fill-mode: forwards;
   }
 
+  /* Updated gradient with a darker purple at the bottom */
+  .bg-cosmic-gradient {
+    @apply relative bg-gradient-to-b from-indigo-950 via-blue-950 to-purple-950;
+  }
+
+  .bg-grid-overlay {
+    @apply bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0.3))] opacity-10;
+  }
+
+  .bg-particle-effect {
+    @apply absolute inset-0 pointer-events-none;
+  }
+
+  .animate-particle {
+    animation: particle 8s infinite ease-in-out;
+  }
+
+  .animate-particle-delayed {
+    animation: particle 8s infinite ease-in-out 2s;
+  }
+
+  /* Section-specific glow effect (unchanged) */
+  .bg-section-glow {
+    @apply absolute inset-0 animate-pulse opacity-5;
+  }
+
+  /* Existing keyframes (unchanged) */
   @keyframes fadeIn {
     from {
       opacity: 0;
@@ -237,6 +265,22 @@
     to {
       opacity: 1;
       transform: translateY(0);
+    }
+  }
+
+  /* Particle animation (unchanged) */
+  @keyframes particle {
+    0% {
+      transform: translate(0, 0);
+      opacity: 0.8;
+    }
+    50% {
+      transform: translate(20px, 20px);
+      opacity: 0.3;
+    }
+    100% {
+      transform: translate(0, 0);
+      opacity: 0.8;
     }
   }
 }

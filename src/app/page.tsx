@@ -20,13 +20,27 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gray-950 text-white">
+    <main className="relative min-h-screen bg-cosmic-gradient text-white overflow-hidden">
+      {/* Apply grid overlay and particles at the page level */}
+      <div className="absolute inset-0 bg-grid-overlay" />
+      <div className="bg-particle-effect">
+        <div className="w-1 h-1 bg-blue-400 rounded-full absolute top-20 left-1/4 animate-particle" />
+        <div className="w-1 h-1 bg-purple-400 rounded-full absolute top-40 right-1/3 animate-particle-delayed" />
+        <div className="w-1 h-1 bg-amber-400 rounded-full absolute top-[30%] left-1/3 animate-particle" />
+        <div className="w-1 h-1 bg-blue-400 rounded-full absolute top-[50%] left-2/4 animate-particle-delayed" />
+        <div className="w-1 h-1 bg-purple-400 rounded-full absolute top-[70%] right-1/4 animate-particle" />
+        <div className="w-1 h-1 bg-amber-400 rounded-full absolute top-[90%] left-1/5 animate-particle-delayed" />
+      </div>
+
       <Navbar />
       <HeroSection />
 
       {/* Features Section */}
-      <section className="py-20 bg-gradient-to-b from-gray-900 to-gray-950">
-        <div className="container mx-auto px-4">
+      <section className="relative py-20">
+        <div className="bg-section-glow">
+          <div className="w-full h-full bg-[radial-gradient(circle_at_50%_50%,_rgba(59,130,246,0.2),_transparent_80%)]" />
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600">
               Powerful Features & Services
@@ -221,9 +235,10 @@ export default function Home() {
       </section>
 
       {/* Why Biz Glow AI Section */}
-      <section className="relative py-24 bg-gray-900 overflow-hidden">
-        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-2/3 h-px bg-gradient-to-r from-transparent via-blue-500/40 to-transparent" />
-        
+      <section className="relative py-24">
+        <div className="bg-section-glow">
+          <div className="w-full h-full bg-[radial-gradient(circle_at_50%_50%,_rgba(59,130,246,0.2),_transparent_80%)]" />
+        </div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-500 to-blue-600 animate-fade-in-up">
@@ -267,8 +282,6 @@ export default function Home() {
             ))}
           </div>
         </div>
-
-        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-blue-500/40 to-transparent mt-20" />
       </section>
 
       {/* CTA Section */}

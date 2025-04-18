@@ -10,7 +10,6 @@ import { motion } from "framer-motion";
 export default function HeroSection() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // Animation variants for staggered entrance
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -44,20 +43,10 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Enhanced Background with Gradient and Particles */}
-      <div className="absolute inset-0 bg-gradient-to-br from-indigo-950 via-blue-950 to-purple-950 opacity-95" />
-      <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0.3))]" />
-      <div className="absolute inset-0 animate-pulse opacity-20">
-        <div className="w-full h-full bg-[radial-gradient(circle_at_50%_30%,_rgba(59,130,246,0.3),_transparent_70%)]" />
+    <section className="relative min-h-screen flex items-center">
+      <div className="bg-section-glow">
+        <div className="w-full h-full bg-[radial-gradient(circle_at_50%_50%,_rgba(59,130,246,0.2),_transparent_80%)]" />
       </div>
-      {/* Particle Effect (CSS-based for simplicity) */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="w-1 h-1 bg-blue-400 rounded-full absolute top-20 left-1/4 animate-particle" />
-        <div className="w-1 h-1 bg-purple-400 rounded-full absolute top-40 right-1/3 animate-particle-delayed" />
-        <div className="w-1 h-1 bg-amber-400 rounded-full absolute bottom-20 left-1/3 animate-particle" />
-      </div>
-
       <motion.div
         className="container mx-auto px-4 relative z-10"
         initial="hidden"
@@ -65,7 +54,6 @@ export default function HeroSection() {
         variants={containerVariants}
       >
         <div className="max-w-4xl mx-auto text-center">
-          {/* Enhanced Badge with Higher Contrast and Pulse Effect */}
           <motion.div
             variants={badgeVariants}
             animate={["visible", "pulse"]}
@@ -77,7 +65,6 @@ export default function HeroSection() {
             </span>
           </motion.div>
 
-          {/* Heading with Orbiting Sparkles */}
           <div className="relative">
             <motion.h1
               variants={fadeInUp}
@@ -85,12 +72,10 @@ export default function HeroSection() {
             >
               Transform Your Business with AI
             </motion.h1>
-            {/* Sparkle Elements */}
             <div className="absolute -top-4 -left-4 w-3 h-3 bg-amber-400 rounded-full animate-orbit" />
             <div className="absolute -bottom-4 -right-4 w-2 h-2 bg-blue-400 rounded-full animate-orbit-delayed" />
           </div>
 
-          {/* Paragraph with Subtle Parallax Effect */}
           <motion.p
             variants={fadeInUp}
             className="text-xl md:text-2xl text-gray-100 mb-10 max-w-2xl mx-auto drop-shadow-md"
@@ -100,7 +85,6 @@ export default function HeroSection() {
             Automate workflows, enhance customer service, and drive growth with our intelligent AI solutions designed for small businesses.
           </motion.p>
 
-          {/* Buttons with Enhanced Hover Effects */}
           <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
               onClick={() => setIsModalOpen(true)}

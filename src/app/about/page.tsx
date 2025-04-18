@@ -2,10 +2,9 @@
 
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import {Lightbulb } from "lucide-react";
+import { Lightbulb } from "lucide-react";
 import { motion } from "framer-motion";
 import CtaSection from "@/components/CtaSection";
-
 
 export default function About() {
   const fadeInUp = {
@@ -24,15 +23,24 @@ export default function About() {
   };
 
   return (
-    <main className="min-h-screen bg-gray-950 text-white">
+    <main className="min-h-screen bg-cosmic-gradient text-white overflow-hidden">
+      {/* Apply grid overlay and particles at the page level */}
+      <div className="absolute inset-0 bg-grid-overlay" />
+      <div className="bg-particle-effect">
+        <div className="w-1 h-1 bg-blue-400 rounded-full absolute top-20 left-1/4 animate-particle" />
+        <div className="w-1 h-1 bg-purple-400 rounded-full absolute top-40 right-1/3 animate-particle-delayed" />
+        <div className="w-1 h-1 bg-amber-400 rounded-full absolute top-[30%] left-1/3 animate-particle" />
+        <div className="w-1 h-1 bg-blue-400 rounded-full absolute top-[50%] left-2/4 animate-particle-delayed" />
+        <div className="w-1 h-1 bg-purple-400 rounded-full absolute top-[70%] right-1/4 animate-particle" />
+        <div className="w-1 h-1 bg-amber-400 rounded-full absolute top-[90%] left-1/5 animate-particle-delayed" />
+      </div>
+
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-24 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/30 via-purple-900/20 to-gray-950">
-          <div className="absolute inset-0 opacity-30 animate-pulse">
-            <div className="w-full h-full bg-[radial-gradient(circle_at_50%_50%,_rgba(59,130,246,0.2),_transparent_50%)]" />
-          </div>
+      <section className="relative pt-32 pb-24">
+        <div className="bg-section-glow">
+          <div className="w-full h-full bg-[radial-gradient(circle_at_50%_50%,_rgba(59,130,246,0.2),_transparent_80%)]" />
         </div>
         <motion.div
           className="container mx-auto px-4 relative z-10"
@@ -48,21 +56,22 @@ export default function About() {
               About Biz Glow AI
             </motion.h1>
             <motion.p
-              className="text-xl md:text-2xl text-gray-200 mb-10 font-light"
+              className="text-xl md:text-2xl text-gray-100 mb-10 font-light"
               variants={fadeInUp}
             >
               Transforming small businesses with cutting-edge AI automation since 2023. Our tailored solutions empower entrepreneurs to thrive in a digital world with simplicity and impact.
             </motion.p>
-            <motion.div variants={fadeInUp}>
-
-            </motion.div>
+            <motion.div variants={fadeInUp}></motion.div>
           </div>
         </motion.div>
       </section>
 
       {/* Story Section */}
-      <section className="py-24 bg-gray-900/50">
-        <div className="container mx-auto px-4">
+      <section className="relative py-24">
+        <div className="bg-section-glow">
+          <div className="w-full h-full bg-[radial-gradient(circle_at_50%_50%,_rgba(59,130,246,0.2),_transparent_80%)]" />
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div
             className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start"
             initial="hidden"
@@ -99,7 +108,7 @@ export default function About() {
                     variants={fadeInUp}
                   >
                     <h3 className="text-lg font-semibold text-blue-400 mb-2">{item.year}</h3>
-                    <p className="text-gray-300">{item.text}</p>
+                    <p className="text-gray-200">{item.text}</p>
                   </motion.div>
                 ))}
               </div>
@@ -114,7 +123,7 @@ export default function About() {
                 </div>
                 <h3 className="text-2xl font-semibold text-white">Our Vision</h3>
               </div>
-              <p className="text-gray-200 text-lg">
+              <p className="text-gray-100 text-lg">
                 A world where every small business thrives with AI-driven automation, empowering local shops, startups, and entrepreneurs to compete at scale with seamless operations and smart marketing. We envision a future where technology levels the playing field for all.
               </p>
             </motion.div>
